@@ -1,0 +1,1075 @@
+﻿@model SAM_V2.Models.Proposal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Document Details</h2>
+                    @if ((Session["PSUPassport"] != null) && (Session["Position"].Equals("Advisor") || Session["OrganName"].Equals("Student Council") ||
+                     Session["Position"].Equals("Head of Student Activity section") || Session["Position"].Equals("Head of Student Affairs division") || Session["Position"].Equals("Assistant to the President for Student Development") ||
+                     Session["Position"].Equals("Vice President for Academic Affairs for Phuket Campus") || Session["OrganName"].Equals("Student Union")))
+{
+<div>
+    
+    <hr />
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayName("Organization")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Subject")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Activity Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Start Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("End Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Place")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Student Activity’s budget")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StdBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Budget from other source name (please specify")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OthName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Budget from other source amount (please specify)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OthBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Total")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Requirement activity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act1)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Public consciousness, morals, ethics and discipline")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act2)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Social skill, academic/ profession international capability on basis of being Thai")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act3)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Pride of Institute being children of the Father, being one without division by academic campus or area")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act4)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Understanding of cultural plurality, democracy")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act5)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Healthy development")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act6)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Link for attratch file")
+        </dt>
+
+        <dd>
+            <a href="@Html.DisplayFor(model => model.UrlFile)">@Html.DisplayFor(model => model.UrlFile)</a>
+        </dd>
+
+        @if (Session["Position"].Equals("Advisor"))
+        {
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+        }
+        else if (Session["OrganName"].Equals("Student Union"))
+        {
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student Union")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Union's comment")
+            </dt>
+
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment2)
+            </dd>
+
+        }
+        else if (Session["OrganName"].Equals("Student Council"))
+        {
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student Union")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Union's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student CounCil")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student CounCil's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment3)
+            </dd>
+
+        }
+        else if (Session["Position"].Equals("Head of Student Activity section"))
+        {
+
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student Union")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Union's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student CounCil")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student CounCil's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Activity section")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Activity section's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment4)
+            </dd>
+
+        }
+        else if (Session["Position"].Equals("Head of Student Affairs division"))
+        {
+
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student Union")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Union's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student CounCil")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student CounCil's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Activity section")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Activity section's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Affairs division")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result5)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Affairs division's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment5)
+            </dd>
+
+        }
+        else if (Session["Position"].Equals("Assistant to the President for Student Development"))
+        {
+
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student Union")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Union's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student CounCil")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student CounCil's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Activity section")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Activity section's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Affairs division")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result5)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Affairs division's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment5)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Assistant to the President for Student Development")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result6)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Assistant to the President for Student Development's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment6)
+            </dd>
+
+        }
+        else if (Session["Position"].Equals("Vice President for Academic Affairs for Phuket Campus"))
+        {
+
+            <dt>
+                @Html.DisplayName("Approval form Advisor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Advisor's Comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment1)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student Union")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Union's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment2)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Student CounCil")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student CounCil's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment3)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Activity section")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Activity section's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment4)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval from Head of Student Affairs division")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result5)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Head of Student Affairs division's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment5)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Assistant to the President for Student Development")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result6)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Assistant to the President for Student Development's comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment6)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Approval form Vice President for Academic Affairs for Phuket Campus")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Result7)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Vice President for Academic Affairs for Phuket Campus' comment")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment7)
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DocNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+                    }
+                    else if (Session["Position"].Equals("Student Activity Staffs"))
+                    {
+                        <div>
+
+                            <hr />
+
+                            <dl class="dl-horizontal">
+
+                                <dt>
+                                    @Html.DisplayName("Organization")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.OrganName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Date")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Date)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Subject")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Subject)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Activity Name")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ActName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Start Date")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.StartDate)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("End Date")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.EndDate)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Place")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Place)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Student Activity’s budget")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.StdBudget)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Budget from other source name (please specify")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.OthName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Budget from other source amount (please specify)")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.OthBudget)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Total")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Total)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Requirement activity")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act1)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Public consciousness, morals, ethics and discipline")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act2)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Social skill, academic/ profession international capability on basis of being Thai")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act3)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Pride of Institute being children of the Father, being one without division by academic campus or area")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act4)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Understanding of cultural plurality, democracy")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act5)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Healthy development")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act6)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Link for attratch file")
+                                </dt>
+
+                                <dd>
+                                    <a href="@Html.DisplayFor(model => model.UrlFile)">@Html.DisplayFor(model => model.UrlFile)</a>
+                                  
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval form Advisor")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result1)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Advisor's Comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment1)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval form Student Union")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result2)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Student Union's comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment2)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval form Student CounCil")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result3)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Student CounCil's comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment3)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval from Head of Student Activity section")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result4)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Head of Student Activity section's comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment4)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval from Head of Student Affairs division")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result5)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Head of Student Affairs division's comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment5)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval form Assistant to the President for Student Development")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result6)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Assistant to the President for Student Development's comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment6)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Approval form Vice President for Academic Affairs for Phuket Campus")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Result7)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Vice President for Academic Affairs for Phuket Campus' comment")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Comment7)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.DocNo }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    }
+                    else
+                    {
+                        <div>
+
+                            <hr />
+
+                            <dl class="dl-horizontal">
+
+                                <dt>
+                                    @Html.DisplayName("Organization")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.OrganName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Date")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Date)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Subject")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Subject)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Activity Name")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ActName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Start Date")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.StartDate)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("End Date")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.EndDate)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Place")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Place)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Student Activity’s budget")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.StdBudget)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Budget from other source name (please specify")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.OthName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Budget from other source amount (please specify)")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.OthBudget)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Total")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Total)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Requirement activity")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act1)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Public consciousness, morals, ethics and discipline")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act2)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Social skill, academic/ profession international capability on basis of being Thai")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act3)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Pride of Institute being children of the Father, being one without division by academic campus or area")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act4)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Understanding of cultural plurality, democracy")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act5)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Healthy development")
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Act6)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayName("Link for attratch file")
+                                </dt>
+
+                                <dd>
+                                    <a href="@Html.DisplayFor(model => model.UrlFile)">@Html.DisplayFor(model => model.UrlFile)</a>
+                                </dd>
+
+                               
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.DocNo }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    }

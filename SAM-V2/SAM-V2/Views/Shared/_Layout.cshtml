@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        #navbar-main {
+  /* Added `.affix-top` class css when the element is top */
+  &.affixed-top {
+    background: black;
+  }
+  /* Added `.affix` class css when the element is >= 170px (Look: line 8 html) */
+  &.affix {
+    background: gray;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  /* Added `.affix-bottom` class css when the element is footer */
+  &.affix-bottom {
+    background: red; 
+  }
+}
+
+/* Not important */
+.footer {
+  background: #eee;
+  height: 1000px;
+}
+
+body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        a {
+            color: #c0392b;
+        }
+
+        .navbar-default .navbar-brand {
+            color: rgba(179, 68, 68, 1);
+        }
+
+        .navbar-default .navbar-brand {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .navbar-default {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            background-color: steelblue;
+            border-width: 0px;
+        }
+
+            .navbar-default .navbar-nav > li > a {
+                color: rgba(255, 255, 255, 1);
+                background-color: steelblue;
+            }
+
+                .navbar-default .navbar-nav > li > a:hover,
+                .navbar-default .navbar-nav > li > a:focus {
+                    color: rgba(255, 255, 255, 1);
+                    background-color: rgb(255, 216, 0);
+                }
+
+            .navbar-default .navbar-nav > .active > a,
+            .navbar-default .navbar-nav > .active > a:hover,
+            .navbar-default .navbar-nav > .active > a:focus {
+                color: rgba(255, 255, 255, 1);
+                background-color: rgba(25, 160, 148, 1);
+            }
+
+            .navbar-default .navbar-toggle {
+                border-color: #19a094;
+            }
+
+                .navbar-default .navbar-toggle:hover,
+                .navbar-default .navbar-toggle:focus {
+                    background-color: #19a094;
+                }
+
+                .navbar-default .navbar-toggle .icon-bar {
+                    background-color: #19a094;
+                }
+
+                .navbar-default .navbar-toggle:hover .icon-bar,
+                .navbar-default .navbar-toggle:focus .icon-bar {
+                    background-color: #009688;
+                }
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Affix.js - Fixed <b>navbar</b> by scrolling the page with <b>Bootstrap</b></h1>
+            <h2><small>Go down, Go down!</small></h2>
+        </header>
+    </div> 
+
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+         
+
+                    @if (Session["PSUPassport"] != null && Session["PSUPassport"].ToString() == "admin")
+                    {
+                        @Html.ActionLink("SAM", "Index", "Staffs", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    else if (Session["PSUPassport"] != null && Session["Position"].Equals("Student Activity Staffs"))
+                    {
+                        @Html.ActionLink("SAM", "Index", "Proposals", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    else if ((Session["PSUPassport"] != null) && (Session["Position"].Equals("Advisor") || Session["Position"].Equals("Student Council") ||
+                  Session["Position"].Equals("Head of Student Activity section") || Session["Position"].Equals("Head of Student Affairs division") || Session["Position"].Equals("Assistant to the President for Student Development") ||
+                  Session["Position"].Equals("Vice President for Academic Affairs for Phuket Campus")))
+                    {
+                        @Html.ActionLink("SAM", "Index", "Proposals", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    else if (Session["PSUPassport"] != null && Session["OrganName"].Equals("Student Union"))
+                    {
+                        @Html.ActionLink("SAM", "Index", "Proposals", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    else if (Session["PSUPassport"] == null)
+                    {
+                        @Html.ActionLink("SAM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("SAM", "Index", "Proposals", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                 
+                </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Session["PSUPassport"] != null && Session["PSUPassport"].ToString() == "admin")
+                    {
+                        <li> @Html.ActionLink("Staff Management", "Index", "Staffs") </li>
+                    }
+
+                    else if (Session["PSUPassport"] != null && Session["Position"].Equals("Student Activity Staffs"))
+                    {
+
+                        <li> @Html.ActionLink("Proposal Management", "Index", "Proposals") </li>
+                        <li> @Html.ActionLink("Oganization Management", "Index", "Organizations") </li>
+                        <li> @Html.ActionLink("User Management", "Index", "Users") </li>
+                        <li> @Html.ActionLink("Approver Management", "Index", "Approvers") </li>
+                    }
+
+                    else if ((Session["PSUPassport"] != null) && (Session["Position"].Equals("Advisor") || Session["OrganName"].Equals("Student Council") ||
+                Session["Position"].Equals("Head of Student Activity section") || Session["Position"].Equals("Head of Student Affairs division") || Session["Position"].Equals("Assistant to the President for Student Development") ||
+                Session["Position"].Equals("Vice President for Academic Affairs for Phuket Campus")))
+                    {
+
+                        <li> @Html.ActionLink("Proposal Management", "Index", "Proposals") </li>
+                    }
+
+                    else if (Session["PSUPassport"] != null && Session["OrganName"].Equals("Student Union"))
+                    {
+
+                        <li> @Html.ActionLink("Proposal Management", "Index", "Proposals") </li>
+                    }
+                    else if (Session["PSUPassport"] == null)
+                    {
+
+                    }
+                    else
+                    {
+                        <li> @Html.ActionLink("Proposal Management", "Index", "Proposals") </li>
+                    }
+
+                </ul>
+
+                @if (Session["PSUPassport"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right " align="right">
+                        <li style="margin-top:15px"><span class="label label-default">@Html.DisplayName("Welcome, " + @Session["Name"].ToString()) </span></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                    </ul>
+                }
+
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right " align="right">
+                        <li>@Html.ActionLink("Login", "Index", "Home")</li>
+                    </ul>
+                }
+
+
+
+            </div>
+        </div>
+
+    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

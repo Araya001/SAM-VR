@@ -1,0 +1,106 @@
+﻿@model SAM_V2.Models.Users
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Users Details</h2>
+
+<div>
+    <h4>Users</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Title Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TitleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Firstname")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Lastname")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Faculty")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Major")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Major)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Organization")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Position")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Telephone")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Start Position Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPositionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("End Position Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndPositionDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PSUPassport }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
